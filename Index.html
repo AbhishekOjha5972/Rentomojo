@@ -1,12 +1,276 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <script src="https://kit.fontawesome.com/d7fb88724e.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="indexStyle.css">
 </head>
+
 <body>
-    <h2>Hello my self abhishek im struggling in DSA</h2>
+
+    <div id="main--navbar__container">
+
+        <!-- creating the navbar  -->
+        <div class="navbar">
+
+            <!-- Logo and site name  -->
+            <div id="logo-rm__name">
+                <div id="rm__logo">
+                    <img src="https://play-lh.googleusercontent.com/5S7hL_DxU_Ml7kGBs0M5pzKOoNXpFZELahoT-rbwKmeREwoBI_L8_ikrz_w5Me7K6A"
+                        alt="">
+                </div>
+                <h2>rentomojo</h2>
+            </div>
+
+            <!-- Select city drop donw  -->
+            <div id="navbar__city__button">
+                <span id="print_city_name">Choose City</span>
+                <i class="fa-solid fa-angle-down"></i>
+            </div>
+
+            <!-- Search box  -->
+            <div id="search__box">
+                <input type="text" id="search-bar__input-box" placeholder="Search for products">
+                <i class="fa-solid fa-magnifying-glass"></i>
+            </div>
+
+            <!-- Cart button section  -->
+            <div id="navbar__cart__button">
+                <i class="fa-solid fa-cart-shopping"></i>
+                <span>Cart</span>
+            </div>
+
+            <!-- Login & signup button  -->
+            <div id="login-signup__button">
+                <span id="inner__login-signup__button">LOGIN / SIGNUP</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Creating the city model box;
+    <div class="rm-city-select__background">
+        <div class="city-selector__model-content">
+            <span id="close-city-selector-model">X</span>
+            <div id="city__search-box">
+                <input type="text" id="inner__city__search-box" placeholder="Search city here">
+            </div>
+            <div id="city__name__boxes">
+                <div>Bangalore</div>
+                <div>Mumbai</div>
+                <div>Pune</div>
+                <div>Delho</div>
+                <div>Noida</div>
+                <div>Gurgaon</div>
+                <div>Hyderabad</div>
+                <div>Chennai</div>
+                <div>Ahmedabad</div>
+                <div>Mysore</div>
+                <div>Jaipur</div>
+                <div>Faridabad</div>
+                <div>Ghaziabad</div>
+                <div>Gandhinagar</div>
+                <div>Chandigarh</div>
+                <div>Kolkata</div>
+            </div>
+        </div>
+    </div> -->
+
+    <!-- Carousel making or image slider -->
+    <div class="carousel-container">
+        <div class="carousel-slider">
+            <img src="https://s.rmjo.in/Fitness-Offer-HP-Web-%20(1).jpg" alt="" id="last-image_clone">
+
+            <img src="https://s.rmjo.in/Paytm-Bank-Desktop-banner-%20(1).jpg" alt="">
+
+            <img src="https://s.rmjo.in/Bangalore%20store%20Desktop-A%20.gif" alt="">
+
+            <img src="https://s.rmjo.in/Fitness-Offer-HP-Web-%20(1).jpg" alt="">
+
+            <img src="https://s.rmjo.in/Paytm-Bank-Desktop-banner-%20(1).jpg" alt="" id="first-image_clone">
+        </div>
+        <button id="prebtn"><i class="fa-sharp fa-solid fa-chevron-left"></i></button>
+        <button id="nextbtn"><i class="fa-sharp fa-solid fa-chevron-right"></i></button>
+
+        <p id="covid_warning">Safety precautions during COVID-19. We’re taking additional steps and precautionary
+            measures to protect our community from COVID-19.
+            <a href="https://www.rentomojo.com/covid19-response">know more <i
+                    class="fa-solid fa-circle-arrow-right"></i></a>
+        </p>
+    </div>
+
+    <!-- Category part  -->
+    <div class="category">
+        <div>
+            <div>
+                <i class="fa-sharp fa-solid fa-box-archive"></i>
+            </div>
+            <h3>Packeges</h3>
+        </div>
+        <div>
+            <div>
+                <i class="fa-sharp fa-solid fa-couch"></i>
+            </div>
+            <h3>Farniture</h3>
+        </div>
+        <div>
+            <div>
+                <i class="fa-sharp fa-solid fa-blender-phone"></i>
+            </div>
+            <h3>Appliances</h3>
+        </div>
+        <div>
+            <div>
+                <i class="fa-sharp fa-solid fa-tv"></i>
+            </div>
+            <h3>Electronics</h3>
+        </div>
+        <div>
+            <div>
+                <i class="fa-sharp fa-solid fa-person-biking"></i>
+            </div>
+            <h3>Fitness</h3>
+        </div>
+        <div>
+            <div>
+                <i class="fa-sharp fa-solid fa-house-laptop"></i>
+
+            </div>
+            <h3>WFH Essentianl</h3>
+        </div>
+    </div>
+
+    <!-- Creating the city model box; -->
+    <div class="rm-city-select__background">
+        <div class="city-selector__model-content">
+            <span id="close-city-selector-model">X</span>
+            <div id="city__search-box">
+                <input type="text" id="inner__city__search-box" placeholder="Search city here">
+            </div>
+            <div id="city__name__boxes">
+                <div>Bangalore</div>
+                <div>Mumbai</div>
+                <div>Pune</div>
+                <div>Delho</div>
+                <div>Noida</div>
+                <div>Gurgaon</div>
+                <div>Hyderabad</div>
+                <div>Chennai</div>
+                <div>Ahmedabad</div>
+                <div>Mysore</div>
+                <div>Jaipur</div>
+                <div>Faridabad</div>
+                <div>Ghaziabad</div>
+                <div>Gandhinagar</div>
+                <div>Chandigarh</div>
+                <div>Kolkata</div>
+            </div>
+        </div>
+    </div>
+
+
+
+
 </body>
+
 </html>
+
+
+
+
+
+
+
+
+
+<script>
+
+    let modelbtn = document.getElementById('navbar__city__button');
+    let modelbg = document.querySelector('.rm-city-select__background')
+    let modelcloss = document.querySelector('#close-city-selector-model');
+
+    // city select navbar
+    let cityselect = document.querySelector('#city__name__boxes');
+
+
+    // hide and visible feature
+    modelbtn.addEventListener("click", function () {
+        console.log("hello")
+        modelbg.classList.add('model_active');
+    })
+    modelcloss.addEventListener("click", function () {
+        modelbg.classList.remove('model_active');
+    })
+
+
+    // city select function 
+    cityselect.addEventListener('click', function (event) {
+        document.querySelector('#print_city_name').innerText = event.target.innerText;
+    })
+
+
+
+    // Carousel script 
+    // Get elements 
+    let carouselSlide = document.querySelector('.carousel-slider');
+
+    let carouselImages = document.querySelectorAll('.carousel-slider > img');
+
+    // Get buttons 
+    let prebtn = document.querySelector('#prebtn');
+    let nextbtn = document.querySelector('#nextbtn');
+
+    // counter 
+    let counter = 1;
+    let size = carouselImages[1].clientWidth;
+
+    carouselSlide.style.transform = 'translateX(' + (-size * counter) + 'px)'
+
+    // Button listener 
+    nextbtn.addEventListener('click', () => {
+        if (counter >= carouselImages.length - 1) return;
+        carouselSlide.style.transition = "transform 0.5s ease-in-out";
+        counter++;
+        carouselSlide.style.transform = 'translateX(' + (-size * counter) + 'px)';
+
+    })
+    prebtn.addEventListener('click', () => {
+        if (counter <= 0) return;
+        carouselSlide.style.transition = "transform 0.5s ease-in-out";
+        counter--;
+        carouselSlide.style.transform = 'translateX(' + (-size * counter) + 'px)'
+
+    })
+
+    // For repeat the all the images 
+
+    // for previous 
+
+    carouselSlide.addEventListener('transitionend', () => {
+        if (carouselImages[counter].id === 'last-image_clone') {
+            carouselSlide.style.transition = "none";
+            counter = carouselImages.length - 2;
+            carouselSlide.style.transform = 'translateX(' + (-size * counter) + 'px)';
+        }
+    })
+
+    // for next 
+
+    carouselSlide.addEventListener('transitionend', () => {
+        if (carouselImages[counter].id === 'first-image_clone') {
+            carouselSlide.style.transition = "none";
+            counter = carouselImages.length - counter;
+            carouselSlide.style.transform = 'translateX(' + (-size * counter) + 'px)';
+        }
+    })
+
+
+
+
+
+
+
+</script>
