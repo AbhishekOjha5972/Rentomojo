@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OTP</title>
+    <style>
+        #container {
+            width: 20%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            margin-top: 200px;
+            box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+            padding: 10px;
+            margin: auto;
+        }
+
+        #submit {
+            height: 20px;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="container">
+        <h2>Enter your OTP</h2>
+        <input type="number" id="otpbox" placeholder="Enter Your OTP">
+        <button id="submit">Ok</button>
+    </div>
+</body>
+
+</html>
+<script>
+    document.querySelector("#submit").addEventListener("click", checkFunction);
+    let check = JSON.parse(localStorage.getItem("otp"))
+    function checkFunction(event) {
+        takeInput = document.querySelector("#otpbox").value;
+        event.preventDefault();
+        if (takeInput == check) {
+            alert("LogIn Success full")
+        }
+        else {
+            alert("Incurrect OTP")
+        }
+    }
+</script>
