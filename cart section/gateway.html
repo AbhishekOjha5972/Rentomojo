@@ -24,6 +24,8 @@
             margin: auto;
             padding: 10px 10px 30px;
             box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+            border-radius: 15px;
+            /* border: 1px solid rgb(220, 50, 38); */
         }
 
         form {
@@ -34,20 +36,46 @@
 
         form>input {
             margin: 10px 0 10px 0;
-            height: 30px;
+            height: 40px;
+            border-radius: 10px;
+            border: none;
+            box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+
         }
+
+        #submitButton:hover {
+            background-color: rgb(220, 50, 38);
+            color: white;
+            transition: all 0.3s ease-in-out;
+        }
+
 
         .otp {
             display: flex;
             margin: auto;
-            height: 30px;
+            height: 40px;
+            width: 100px;
             align-items: center;
+            justify-content: center;
             margin-top: 10px;
-
+            border-radius: 10px;
+            border: none;
+            
+        }
+        .otp:hover{
+            background-color: rgb(220, 50, 38);
+            color: white;
+            transition: all 0.3s ease-in-out;
+        }
+        .otp >a:hover{
+            background-color: rgb(220, 50, 38);
+            color: white;
+            transition: all 0.3s ease-in-out;
         }
 
         a {
             text-decoration: none;
+            color: black;
         }
     </style>
 </head>
@@ -57,13 +85,13 @@
     <div id="container">
         <form>
             <label for="CardNumber">Enter your Card Number</label>
-            <input type="number" name="" id="cardNumber" placeholder="Enter your Card Number">
+            <input type="tel" name="" id="cardNumber" placeholder="&nbsp; &nbsp; 0000 0000 0000 0000" maxlength="19">
             <label for="CVV">CVV</label>
-            <input type="number" id="cvvNum" placeholder="Enter your CVV number">
+            <input type="tel" id="cvvNum" placeholder="&nbsp; &nbsp;Enter your CVV number" maxlength="3">
             <label for="ExpiryDate">Expiry Date</label>
-            <input type="date" id="expiryDate" placeholder="Enter Your Card Expiry Date">
+            <input type="date" id="expiryDate">
             <label for="name">Name</label>
-            <input type="text" id="name" placeholder="Enter Your Name">
+            <input type="text" id="name" placeholder="&nbsp; &nbsp;Enter Your Name">
 
             <input type="submit" id="submitButton">
         </form>
@@ -77,33 +105,53 @@
 
 <script>
 
-let data=JSON.parse(localStorage.getItem("payAmount"))
-document.querySelector("#submitButton").value="Pay"+" "+"Rs."+" "+data;   
-console.log(data) 
 
-    document.querySelector("form").addEventListener("submit",myfun)
-function myfun(event){
-    event.preventDefault();
-    let takeCard=document.querySelector("#cardNumber").value;
-    let takeCvv=document.querySelector("#cvvNum").value;
-    let takeExpiryDate=document.querySelector("#expiryDate").value;
-    let takeName=document.querySelector("#name").value;
 
-    console.log(takeCard,takeCvv,takeName,takeExpiryDate)
-    
-    if(takeCard==""||takeCvv==""||takeExpiryDate==""|| takeName==""){
-        alert("Please fill all the fields")
-    }
-    else{
-        if(takeCard=="123456789"||takeCvv=="198"){
-            alert("All details are correct");
-            localStorage.setItem("otp",JSON.stringify("1234"));
+    let data = JSON.parse(localStorage.getItem("payAmount"))
+    document.querySelector("#submitButton").value = "Pay" + " " + "Rs." + " " + data;
+    console.log(data)
+
+    document.querySelector("form").addEventListener("submit", myfun)
+    function myfun(event) {
+        event.preventDefault();
+        let takeCard = document.querySelector("#cardNumber").value;
+        let takeCvv = document.querySelector("#cvvNum").value;
+        let takeExpiryDate = document.querySelector("#expiryDate").value;
+        let takeName = document.querySelector("#name").value;
+
+        console.log(takeCard, takeCvv, takeName, takeExpiryDate)
+
+        if (takeCard == "" || takeCvv == "" || takeExpiryDate == "" || takeName == "") {
+            alert("Please fill all the fields")
         }
-        else{
-            alert("Wrong Credential")
+        else {
+            if (takeCard == "123456789" || takeCvv == "198") {
+                alert("All details are correct");
+                localStorage.setItem("otp", JSON.stringify("1234"));
+                document.querySelector('#container button').style.backgroundColor="rgb(71,207,115)  ";
+               
+            }
+            else {
+                alert("Wrong Credential")
+            }
         }
-    }
-    
-}
 
+    }
+
+
+    // Giving the space in input section while enter the number 
+    let inputEvent = document.querySelector('#cardNumber');
+    let checkValue = 0;
+    inputEvent.addEventListener('input', () => {
+        checkValue++;
+        if (checkValue == 4) {
+            let inputBoxValues = document.querySelector('#cardNumber').value;
+            inputBoxValues += " ";
+            document.querySelector('#cardNumber').value = inputBoxValues;
+            checkValue = 0;
+
+
+        }
+
+    })
 </script>

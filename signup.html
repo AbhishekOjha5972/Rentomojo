@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>rentomojo/signup</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            font-family: 'montserrat', sans-serif;
+        }
+
+        .signupContainer {
+            width: 100%;
+            height: 100vh;
+        }
+
+        .imageEdit {
+            width: 100%;
+        }
+
+        /* login logout model box  */
+
+        .logInOut_container {
+            border: 2px solid gray;
+            position: fixed;
+            width: 100%;
+            height: 100vh;
+            top: 0;
+            left: 0;
+            background-color: rgba(0, 0, 0, 0.8);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            /* visibility: hidden;
+    opacity: 0; */
+            transition: visibility 0s, opacity 0.5s;
+            z-index: 100;
+        }
+
+        .working_div {
+            display: flex;
+            position: relative;
+            width: 60%;
+            height: 500px;
+            border-radius: 15px;
+            background-color: white;
+            overflow: hidden;
+
+        }
+
+        .imageDiv {
+            width: 70%;
+            display: flex;
+            margin: auto;
+            justify-content: center;
+            /* border: 3px solid blue; */
+
+        }
+
+        .imageDiv img {
+            width: 80%;
+
+        }
+
+        .logInOutDesign {
+            width: 30%;
+            padding: 40px;
+            /* border: 2px solid yellow; */
+            height: 415px;
+            background-color: rgb(250, 250, 250);
+            position: relative;
+
+        }
+
+        .logInOutDesign>h2 {
+            font-size: 19px;
+            color: rgb(49, 49, 49);
+        }
+
+        .logInOutDesign>input {
+            width: 95%;
+            height: 40px;
+            margin-top: 20px;
+            border: none;
+            outline: none;
+            border-radius: 2px;
+            padding-left: 20px;
+
+        }
+
+        .logInOutDesign>input:hover {
+            box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+            border-bottom: 2px solid rgb(49, 49, 49);
+        }
+
+        .inputShow {
+            font-size: 12px;
+            display: flex;
+            justify-content: right;
+            margin-top: 5px;
+        }
+
+        /* Terms & condition  */
+        #termsAndCondition {
+            font-size: 12px;
+            position: absolute;
+            width: 75%;
+            bottom: 100px;
+        }
+
+        .logInOutDesign>button {
+            position: absolute;
+            bottom: 40px;
+            left: 35px;
+            width: 75%;
+            height: 40px;
+            border: none;
+            outline: none;
+            border-radius: 5px;
+            background-color: #DC3226;
+            color: white;
+
+        }
+
+        .closeBTN {
+            position: absolute;
+            right: 20px;
+            z-index: 1;
+        }
+
+        a {
+            text-decoration: none;
+            color: rgb(49, 49, 49);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="signupContainer">
+        <img src="https://i.ytimg.com/vi/aELmaliPRkM/maxresdefault.jpg" alt="" class="imageEdit">
+    </div>
+
+    <div class=" logInOut_container">
+        <div class="working_div">
+            <div class="imageDiv">
+                <img src="/last carousel images/login.PNG" alt="">
+                <span class="closeBTN"><i class="fa-solid fa-xmark"></i></span>
+            </div>
+            <!-- log in div  -->
+            <div id="logInOut_div" class="logInOutDesign">
+                <h2>Enter your details</h2>
+                <input type="text" name="name" id="username" placeholder="Enter name as per PAN/Govt ID*">
+                <input type="email" name="email" id="useremail" placeholder="Email ID*">
+                <input type="text" name="MOB" id="monNumber" placeholder="Enter your phone number*" maxlength="10">
+                <span class="inputShow"><span id="updateNUM">0</span>/10</span>
+
+
+                <p id="termsAndCondition">By signing up, you agree to RentoMojo's <a
+                        href="https://www.rentomojo.com/terms-and-conditions">Terms and Conditions</a> & <a
+                        href="https://www.rentomojo.com/privacy-policy"> Privacy Policy</a>.</p>
+                <button class="continueBTN">
+                    Login
+                </button>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
+
+<script>
+
+    // This function is showing all the number that are inside the input box (count of numbers )
+    let numberCount = document.querySelector('#monNumber');
+    numberCount.addEventListener('input', () => {
+        let print = document.querySelector('#monNumber').value.length;
+
+        document.querySelector('#updateNUM').innerText = print;
+    })
+
+    //Sending the data in  Local Storage functionality functions here 
+
+    let LSdata = JSON.parse(localStorage.getItem("UserData")) || [];
+
+    let username = document.querySelector('#username');
+    let useremail = document.querySelector('#useremail');
+    let usermobile = document.querySelector("#monNumber");
+    console.log(username, useremail, usermobile);
+
+    let continueBTN = document.querySelector('.continueBTN');
+
+    // Apply addEventListener on continue button 
+
+    continueBTN.addEventListener('click', () => {
+        
+        
+
+    })
+
+</script>
