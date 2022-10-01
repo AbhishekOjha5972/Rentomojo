@@ -1,3 +1,14 @@
+let loggedInUserName=JSON.parse(localStorage.getItem("loggedInUserName"))||[];  
+if(loggedInUserName==0){
+document.querySelector('#inner__login-signup__button').innerText="LOGIN / SIGNUP";
+}
+else{
+document.querySelector('#inner__login-signup__button').innerText=loggedInUserName;
+}
+
+
+
+
 let modelbtn = document.getElementById('navbar__city__button');
 let modelbg = document.querySelector('.rm-city-select__background')
 let modelcloss = document.querySelector('#close-city-selector-model');

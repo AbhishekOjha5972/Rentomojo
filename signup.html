@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://kit.fontawesome.com/d7fb88724e.js" crossorigin="anonymous"></script>
     <title>rentomojo/signup</title>
     <style>
         * {
@@ -129,7 +130,7 @@
         .closeBTN {
             position: absolute;
             right: 20px;
-            z-index: 1;
+            z-index: 100;
         }
 
         a {
@@ -174,6 +175,12 @@
 
 <script>
 
+    // Closs the signUp page 
+    let stopModelBTN = document.querySelector('.closeBTN');
+    stopModelBTN.addEventListener('click', function () {
+       window.location.href="index.html";
+    })
+
     // This function is showing all the number that are inside the input box (count of numbers )
     let numberCount = document.querySelector('#monNumber');
     numberCount.addEventListener('input', () => {
@@ -189,7 +196,6 @@
     let username = document.querySelector('#username');
     let useremail = document.querySelector('#useremail');
     let usermobile = document.querySelector("#monNumber");
-    console.log(username, useremail, usermobile);
 
     let continueBTN = document.querySelector('.continueBTN');
 
@@ -197,8 +203,21 @@
 
     continueBTN.addEventListener('click', () => {
         
-        
+      let data={
+        user_name:username.value,
+        user_email:useremail.value,
+        user_number:usermobile.value,
+      }    
+      LSdata.push(data)
 
+      if(username.value==""||useremail.value==""||usermobile.value==""){
+        alert("Please fill out all fields!");
+      }
+      else{
+          localStorage.setItem("UserData",JSON.stringify(LSdata));
+          alert("Welcome to rentomojo family 🤗")
+          window.location.href="index.html"
+      }
     })
 
 </script>

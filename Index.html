@@ -823,58 +823,67 @@
     // class="closeBTN">
     // .logInOut_model_active
 
-    let startModelBTN=document.querySelector('#login-signup__button');
-    let modelBG_ON_OFF=document.querySelector('.logInOut_container');
-    let stopModelBTN=document.querySelector('.closeBTN');
+    let startModelBTN = document.querySelector('#login-signup__button');
+    let modelBG_ON_OFF = document.querySelector('.logInOut_container');
+    let stopModelBTN = document.querySelector('.closeBTN');
 
     // Model On and Off function 
-    startModelBTN.addEventListener('click',function(){
+    startModelBTN.addEventListener('click', function () {
         modelBG_ON_OFF.classList.add('logInOut_model_active');
     })
-    stopModelBTN.addEventListener('click',function(){
+    stopModelBTN.addEventListener('click', function () {
         modelBG_ON_OFF.classList.remove('logInOut_model_active');
     })
 
-    
-    // This function is showing all the number that are inside the input box (count of numbers )
-    let numberCount=document.querySelector('#monNumber');
-    numberCount.addEventListener('input',()=>{
-        let print=document.querySelector('#monNumber').value.length;
 
-        document.querySelector('#updateNUM').innerText=print;
+    // This function is showing all the number that are inside the input box (count of numbers )
+    let numberCount = document.querySelector('#monNumber');
+    numberCount.addEventListener('input', () => {
+        let print = document.querySelector('#monNumber').value.length;
+
+        document.querySelector('#updateNUM').innerText = print;
     })
 
 
 
     // Local Storage functionality functions here 
 
-    let credentialLogInData=JSON.parse(localStorage.getItem("UserData"))||[];
+    let credentialLogInData = JSON.parse(localStorage.getItem("UserData")) || [];
+    // console.log(credentialLogInData );
+    let continueBTN = document.querySelector('.continueBTN');
+    let monNumber = document.querySelector('#monNumber');
+    // User name showing 
 
-    let continueBTN=document.querySelector('.continueBTN');
-    let monNumber=document.querySelector('#monNumber').value;
 
-    
     // Nubmer checking function that given number is already present in database or not 
 
-    continueBTN.addEventListener('click',()=>{
-        let flage=0;
-        credentialLogInData.forEach(function(ele){
-                if(ele.mobileNum==monNumber && flage==0){
-                    flage=1;
-
-                }     
+    continueBTN.addEventListener('click', () => {
+        let flage = 0;
+        // console.log(credentialLogInData);
+        credentialLogInData.forEach(function (ele) {
+            if (ele.user_number == monNumber.value && flage == 0) {
+                let print1 = ele.user_name
+                localStorage.setItem("loggedInUserName",JSON.stringify(print1));
+                flage = 1;
+            }
         })
-        if(flage==0){
-            alert("Sorry! Yor are not our old customer. You have to Sign UP first")
+        if (flage == 0) {
+            alert("Sorry! You are not our old customer. You have to Sign UP first")
+            window.location.href = "signup.html"
         }
-        else{
+        else {
             alert("Welcome To Rentomojo")
-            
+            window.location.href="index.html"
         }
     })
 
-
-
+let loggedInUserName=JSON.parse(localStorage.getItem("loggedInUserName"))||[];  
+if(loggedInUserName==0){
+document.querySelector('#inner__login-signup__button').innerText="LOGIN / SIGNUP";
+}
+else{
+document.querySelector('#inner__login-signup__button').innerText=loggedInUserName;
+}
 
 
 
