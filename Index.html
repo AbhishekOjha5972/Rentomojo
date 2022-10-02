@@ -58,8 +58,10 @@
 
             <!-- Login & signup button  -->
             <div id="login-signup__button">
-                <span id="inner__login-signup__button">LOGIN / SIGNUP</span>
+                <span id="inner__login-signup__button"><a href=""></a>LOGIN / SIGNUP</a></span>
+
             </div>
+
         </div>
     </div>
 
@@ -179,6 +181,25 @@
         </div>
     </div>
 
+    <!-- creating the login page model box  -->
+    <div class=" logInOut_container">
+        <div class="working_div">
+            <div class="imageDiv">
+                <img src="/last carousel images/login.PNG" alt="">
+                <span class="closeBTN"><i class="fa-solid fa-xmark"></i></span>
+            </div>
+            <!-- log in div  -->
+            <div id="logInOut_div" class="logInOutDesign">
+                <h2>Enter your number to
+                    Signup or Login</h2>
+                <input type="tel" name="MOB" id="monNumber" placeholder="Enter your phone number*" maxlength="10">
+                <span class="inputShow"><span id="updateNUM">0</span>/10</span>
+                <button class="continueBTN">
+                    Continue
+                </button>
+            </div>
+        </div>
+    </div>
 
     <!-- Carousel part 2  -->
 
@@ -793,6 +814,77 @@
         modelbg.classList.remove('model_active');
         window.location.reload();
     })
+
+    // Login and Signin model box and complete functionality.
+
+    // Model Activation 
+    // id="login-signup__button"
+    // class=" logInOut_container">
+    // class="closeBTN">
+    // .logInOut_model_active
+
+    let startModelBTN = document.querySelector('#login-signup__button');
+    let modelBG_ON_OFF = document.querySelector('.logInOut_container');
+    let stopModelBTN = document.querySelector('.closeBTN');
+
+    // Model On and Off function 
+    startModelBTN.addEventListener('click', function () {
+        modelBG_ON_OFF.classList.add('logInOut_model_active');
+    })
+    stopModelBTN.addEventListener('click', function () {
+        modelBG_ON_OFF.classList.remove('logInOut_model_active');
+    })
+
+
+    // This function is showing all the number that are inside the input box (count of numbers )
+    let numberCount = document.querySelector('#monNumber');
+    numberCount.addEventListener('input', () => {
+        let print = document.querySelector('#monNumber').value.length;
+
+        document.querySelector('#updateNUM').innerText = print;
+    })
+
+
+
+    // Local Storage functionality functions here 
+
+    let credentialLogInData = JSON.parse(localStorage.getItem("UserData")) || [];
+    // console.log(credentialLogInData );
+    let continueBTN = document.querySelector('.continueBTN');
+    let monNumber = document.querySelector('#monNumber');
+    // User name showing 
+
+
+    // Nubmer checking function that given number is already present in database or not 
+
+    continueBTN.addEventListener('click', () => {
+        let flage = 0;
+        // console.log(credentialLogInData);
+        credentialLogInData.forEach(function (ele) {
+            if (ele.user_number == monNumber.value && flage == 0) {
+                let print1 = ele.user_name
+                localStorage.setItem("loggedInUserName",JSON.stringify(print1));
+                flage = 1;
+            }
+        })
+        if (flage == 0) {
+            alert("Sorry! You are not our old customer. You have to Sign UP first")
+            window.location.href = "signup.html"
+        }
+        else {
+            alert("Welcome To Rentomojo")
+            window.location.href="index.html"
+        }
+    })
+
+let loggedInUserName=JSON.parse(localStorage.getItem("loggedInUserName"))||[];  
+if(loggedInUserName==0){
+document.querySelector('#inner__login-signup__button').innerText="LOGIN / SIGNUP";
+}
+else{
+document.querySelector('#inner__login-signup__button').innerText=loggedInUserName;
+}
+
 
 
     // city select function 

@@ -1,3 +1,11 @@
+let loggedInUserName=JSON.parse(localStorage.getItem("loggedInUserName"))||[];  
+if(loggedInUserName==0){
+document.querySelector('#inner__login-signup__button').innerText="LOGIN / SIGNUP";
+}
+else{
+document.querySelector('#inner__login-signup__button').innerText=loggedInUserName;
+}
+
 
 let modelbtn = document.getElementById('navbar__city__button');
 let modelbg = document.querySelector('.rm-city-select__background')
@@ -116,7 +124,7 @@ if(empty[0]==0){
     paragraphTag.innerText="Add a few items to your cart and come back here for an express checkout process!"
     let aTag=document.createElement('a');
     aTag.innerText="Browse Catalogue";
-    aTag.href="./packeges page/packeges.html";
+    aTag.href="../packeges page/packeges.html";
     emptyDivImg.src=image[0].img;
     emptyDivData.append(emptyDivImg,heading,paragraphTag,aTag);
     document.querySelector('.emptyCart').append(emptyDivData);
